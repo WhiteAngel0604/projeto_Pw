@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de Cadastro</title>
+    <link rel="stylesheet" href="cssGlobal.css">
+</head>
+
+<body>
+    <div id="container">
+        
+
+        <div id="botoesCadastro">
+            <div id="clicli" class="tab-btn active" onclick="alternarAba('cliente')">Cadastro Cliente</div>
+            <div id="veve" class="tab-btn" onclick="alternarAba('vendedor')">Cadastro Vendedor</div>
+        </div>
+        
+        <form action="CadastrarCliente.php" method="POST" id="formularioCliente" class="form-cadastro active">
+        
+            <div class="grupo">
+                <label>Nome Completo:</label>
+                <input type="text" name="nome" required>
+            </div>
+            
+            <div class="grupo">
+                <label>CPF:</label>
+                <input type="text" name="cpf" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Data de Nascimento</label>
+                <input type="date" name="DataNascimento" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Categorias Interessadas</label>
+				
+                <select name="categorias">
+                    <option value="cabelos">Cabelos</option>
+                    <option value="skincare">Skincare</option>
+                    <option value="Cor&Ban">Corpo e Banho</option>
+                    <option value="maquiagem">Maquiagem</option>
+                    <option value="higiene">Higiene</option>
+                </select>
+				
+            </div>
+            
+            <div class="grupo">
+                <label>Endereço</label>
+                <textarea name="endereco" rows="2" required></textarea>
+            </div>
+            
+            <div class="grupo">
+                <label>Senha</label>
+                <input type="password" name="senha" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Confirmar Senha</label>
+                <input type="password" name="confirmarsenha" required>
+            </div>
+            
+            <button type="submit">Cadastrar Cliente</button>
+            
+        </form>
+        
+        <form action="CadastrarVendedor.php" method="POST" id="FormularioVendedor" class="form-cadastro">
+            
+            <div class="grupo">
+                <label>Nome Completo:</label>
+                <input type="text" name="nomeVen" required>
+            </div>
+            
+            <div class="grupo">
+                <label>E-mail:</label>
+                <input type="email" name="email" required>
+            </div>
+            
+            <div class="grupo">
+                <label>CPF do vendedor: </label>
+                <input type="text" name="cpfVen" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Nome da Loja:</label>
+                <input type="text" name="nomeLoja" required>
+            </div>
+            
+            <div class="grupo">
+                <label>CNPJ da Loja</label>
+                <input type="text" name="cnpj" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Categoria da Loja</label>
+				
+                <select name="categoriaLoja">
+                    <option value="cabelos">Cabelos</option>
+                    <option value="skincare">Skincare</option>
+                    <option value="Cor&Ban">Corpo e Banho</option>
+                    <option value="maquiagem">Maquiagem</option>
+                    <option value="higiene">Higiene</option>
+                </select>
+				
+            </div>
+            
+            <div class="grupo">
+                <label>Número de Telefone</label>
+                <input type="tel" name="telefone" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Data de Nascimento</label>
+                <input type="date" name="dataNascimento" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Criar Senha</label>
+                <input type="password" name="senha" required>
+            </div>
+                
+            <div class="grupo">
+                <label>Confirmar Senha</label>
+                <input type="password" name="confirmarSenha" required>
+            </div>
+            
+            <button type="submit">Cadastrar Vendedor</button>
+            
+        </form>
+
+        <div class="link">
+            <p>Já tem uma conta? <a href="index.html">Faça seu Login</a></p>
+        </div>
+    </div>
+
+<!--
+    <script>
+        function alternarAba(tipo) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.form-cadastro').forEach(form => form.classList.remove('active'));
+            
+            if(tipo === 'cliente') {
+                document.getElementById('clicli').classList.add('active');
+                document.getElementById('formularioCliente').classList.add('active');
+            } else {
+                document.getElementById('veve').classList.add('active');
+                document.getElementById('FormularioVendedor').classList.add('active');
+            }
+        }
+    </script>
+	-->
+</body>
+</html>
