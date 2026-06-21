@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produto - Marketplace</title>
+    <link rel="stylesheet" href="cssGlobal.css">
+</head>
+<body>
+
+    <header>
+        <div id="logo">Nossa Loja</div>
+        <nav>
+            <a href="PaginaInicial.html">Início</a>
+            <a href="cadastro_produto.html" class="active">Meus Produtos</a>
+            <a href="index.html">Sair</a>
+        </nav>
+    </header>
+
+    <div id="container">
+        <h2>Cadastrar Novo Produto</h2>
+        
+        <form action="salvar_produto.php" method="POST" id="formProduto">
+        
+            <div class="grupo">
+                <label for="nome_produto">Nome do Produto:</label>
+                <input type="text" id="nome_produto" name="nome_produto" required placeholder="Ex: Sabonete de Maracuja">
+            </div>
+            
+            <div class="grupo">
+              
+                <label for="categoria_produto">Categoria do Produto:</label>
+              
+                <select id="categoria_produto" name="categoria_produto" required>
+                    <option value="">Selecione uma categoria</option>
+                    <option value="cabelos">Cabelos</option>
+                    <option value="skincare">Skincare</option>
+                    <option value="Cor&Ban">Corpo e Banho</option>
+                    <option value="maquiagem">Maquiagem</option>
+                    <option value="higiene">Higiene</option>
+                </select>
+              
+            </div>
+            
+            <div class="grupo">
+                <label for="preco">Preço (R$):</label>
+                <input type="number" id="preco" name="preco" step="any" required placeholder="0.00">
+            </div>
+            
+            <div class="grupo">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" required placeholder="Ex: Avon, Bioextratus">
+            </div>
+            
+            <div class="grupo">
+                <label for="estoque">Quantidade em Estoque:</label>
+                <input type="number" id="estoque" name="estoque" min="0" required placeholder="Ex: 50">
+            </div>
+            
+            <button type="submit">Cadastrar Produto</button>
+          
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() 
+            {
+            fetch('checar_sessao.php')
+                .then(response => response.json())
+                .then(dados => 
+                  {
+                    if (!dados.logado || dados.tipo_usuario !== 'vendedor') 
+                    {
+                        alert("Acesso restrito apenas para vendedores cadastrados.");
+                        window.location.href = "index.html";
+                    }
+                });
+        });
+
+        document.getElementById('formProduto').addEventListener('submit', function(event) 
+              {
+            const preco = parseFloat(document.getElementById('preco').value);
+            const estoque = parseInt(document.getElementById('estoque').value);
+
+            if (preco <= 0) 
+            {
+                alert('O preço do produto precisa ser maior que R$ 0,00.');
+                event.preventDefault();
+                return;
+            }
+
+            if (estoque < 0) 
+            {
+                alert('A quantidade em estoque não pode ser um número negativo.');
+                event.preventDefault();
+                return;
+            }
+        });
+    </script>
+</body>
+</html>
