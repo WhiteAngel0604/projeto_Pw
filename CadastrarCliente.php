@@ -7,6 +7,10 @@ $conexao = mysqli_connect(
     "bancodados"
 );
 
+if (!conexao) {
+    die("Falha na conxão com o banco: " . mysqli_connect_error());
+}
+
 $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
 $dataNascimento = $_POST['DataNascimento'];
@@ -19,12 +23,13 @@ if ($senha != $confirmarSenha) {
     die("As senhas não coincidem!");
 }
 
-echo "<h2>Cliente cadastrado com sucesso!</h2>";
+$sql = "INSERT INTO clientes (nome, cpf, data_nascimento, categoria, endereco, senha);
+        VALUES ('$nome', '$cpf', '$data_nascimento', '$categoria', '$endereco', '$senha')";
 
-echo "Nome: $nome <br>";
-echo "CPF: $cpf <br>";
-echo "Data de nascimento: $dataNascimento <br>";
-echo "Categoria: $categorias <br>";
-echo "Endereço: $endereco <br>";
+if (mysqli_query($conexao, sql)) {
+    echo "<h2>Cliente cadastrado com sucesso!</h2>";
+    echo "<a href='index (1).html'>Ir para a tela de Logiun</a>";
+}
 
+    mysqli_close($conexao);
 ?>
