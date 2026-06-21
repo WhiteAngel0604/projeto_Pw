@@ -6,6 +6,10 @@ $conexao = mysqli_connect(
     "bancodados"
 );
 
+if (!$conexao) {
+    die("Falha na conexão com o banco: " . mysqli_connect_error());
+}
+
 $nome = $_POST['nomeVendedor'];
 $email = $_POST['email'];
 $cpf = $_POST['cpfVen'];
@@ -21,13 +25,15 @@ if ($senha != $confirmarSenha) {
     die("As senhas não coincidem!");
 }
 
-echo "<h2>Vendedor cadastrado com sucesso!</h2>";
+$sql = "INSERT INTO vendedores (nome, email, cpf, nome_loja, cnpj, categoria_loja, telefone, data_nascimento, senha) 
+        VALUES ('$nome', '$email', '$cpf', '$nomeLoja', '$cnpj', '$categoriaLoja', '$telefone', '$dataNascimento', '$senha')";
 
-echo "Nome: $nome <br>";
-echo "Email: $email <br>";
-echo "CPF: $cpf <br>";
-echo "Loja: $nomeLoja <br>";
-echo "CNPJ: $cnpj <br>";
-echo "Categoria: $categoriaLoja <br>";
-echo "Telefone: $telefone <br>";
+if (mysqli_query($conexao, $sql)) {
+    echo "<h2>Vendedor cadastrado com sucesso!</h2>";
+    echo "<a href='index (1).html'>Ir para a tela de Login</a>";
+} else {
+    echo "Erro ao cadastrar: " . mysqli_error($conexao);
+}
+
+mysqli_close($conexao);
 ?>
