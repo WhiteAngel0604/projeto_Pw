@@ -1,5 +1,12 @@
 <?php
 
+$conexao = mysqli_connect(
+    "localhost",
+    "root",
+    "",
+    "bancodados"
+);
+
 $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
 $dataNascimento = $_POST['DataNascimento'];
