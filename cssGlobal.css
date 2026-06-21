@@ -210,3 +210,16 @@ nav a
     color: #7f8c8d;
     margin-bottom: 15px;
 }
+
+#link-vendedor 
+{
+    display: inline-block; 
+    transition: color 0.3s ease;
+}
+
+nav a.active 
+{
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
