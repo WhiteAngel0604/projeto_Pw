@@ -15,7 +15,7 @@ if (empty($identificar) || empty($senha)) {
 
 //bglh pro banco de dados conectar dps
 $host   = "localhost";
-$bancodado    = "nome_do_banco";
+$bancodado    = "bancodados";
 $usuario   = "usuario_banco";
 $senha   = "senha_banco";
 
