@@ -5,38 +5,42 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit();
 }
 
-$identificar = ($_POST["identificar"] ?? "");
+$identificar = $_POST["identificar"] ?? "";
 $senha = $_POST["Senha"] ?? "";
 
 if (empty($identificar) || empty($senha)) {
-     print "Usuário ou senha inválidos.";
-    exit(); 
+    print "Usuário ou senha inválidos.";
+    exit();
 }
 
-//bglh pro banco de dados conectar dps
-$host   = "localhost";
-$bancodado    = "bancodados";
-$usuario   = "usuario_banco";
-$senha   = "senha_banco";
+// conexão com o banco de dados
+$host = "localhost";
+$bancodado = "bancodados";
+$usuarioBanco = "root";
+$senhaBanco = "";
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
+    $pdo = new PDO(
+        "mysql:host=$host;dbname=$bancodado;charset=utf8",
+        $usuarioBanco,
+        $senhaBanco
+    );
+
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 } catch (PDOException $e) {
     print("Erro na conexão: " . $e->getMessage());
-  exit();
+    exit();
 }
 
-//desenrola o sql aqui dps
+// desenrola o sql aqui dps
 
 if (!$usuario || !password_verify($senha, $usuario["senha_hash"])) {
     die("Usuário ou senha inválidos.");
 }
 
-// ─── quando o Login der bom ele salva e redireciona ────────────────────────────────
-$_SESSION["usuario_id"]   = $usuario["id"];
-$_SESSION["usuario_nome"] = $usuario["nome"];
 
 header("Location: dashboard.php");
 exit();
+
 ?>
