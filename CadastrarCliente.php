@@ -1,14 +1,8 @@
 <?php
+$conexao = mysqli_connect("localhost", "root", "", "bancodados");
 
-$conexao = mysqli_connect(
-    "localhost",
-    "root",
-    "",
-    "bancodados"
-);
-
-if (!conexao) {
-    die("Falha na conxão com o banco: " . mysqli_connect_error());
+if (!$conexao) { // Corrigido $conexao
+    die("Falha na conexão com o banco: " . mysqli_connect_error());
 }
 
 $nome = $_POST['nome'];
@@ -23,13 +17,15 @@ if ($senha != $confirmarSenha) {
     die("As senhas não coincidem!");
 }
 
-$sql = "INSERT INTO clientes (nome, cpf, data_nascimento, categoria, endereco, senha);
-        VALUES ('$nome', '$cpf', '$data_nascimento', '$categoria', '$endereco', '$senha')";
+$sql = "INSERT INTO clientes (nome, cpf, data_nascimento, categoria, endereco, senha) 
+        VALUES ('$nome', '$cpf', '$dataNascimento', '$categorias', '$endereco', '$senha')";
 
-if (mysqli_query($conexao, sql)) {
+if (mysqli_query($conexao, $sql)) { // Corrigido $sql
     echo "<h2>Cliente cadastrado com sucesso!</h2>";
-    echo "<a href='index (1).html'>Ir para a tela de Logiun</a>";
+    echo "<a href='index.html'>Ir para a tela de Login</a>";
+} else {
+    echo "Erro ao cadastrar: " . mysqli_error($conexao);
 }
 
-    mysqli_close($conexao);
+mysqli_close($conexao);
 ?>
