@@ -17,7 +17,7 @@ if ($senha != $confirmarSenha) {
     die("As senhas não coincidem!");
 }
 
-$sql = "INSERT INTO clientes (nome, cpf, data_nascimento, categoria, endereco, senha) 
+$sql = "INSERT INTO cadastrocliente (nome, cpf, data_nascimento, categoria, endereco, senha) 
         VALUES ('$nome', '$cpf', '$dataNascimento', '$categorias', '$endereco', '$senha')";
 
 if (mysqli_query($conexao, $sql)) { // Corrigido $sql
