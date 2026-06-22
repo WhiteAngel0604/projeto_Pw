@@ -35,7 +35,9 @@ try {
         die("Usuário ou senha inválidos.");
     }
 
-    // Se tudo der certo, manda para a vitrine
+    $_SESSION['usuario_id'] = $usuario['id'];
+    $_SESSION['tipo_usuario'] = $usuario['tipo']; 
+
     header("Location: PaginaInicial.html");
     exit();
 
