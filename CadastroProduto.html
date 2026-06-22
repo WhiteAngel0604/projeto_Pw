@@ -62,35 +62,797 @@
         </form>
     </div>
 
+   
+Conversa com o Gemini
+ta certo? <!DOCTYPE html>
+
+<html lang="pt-br">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pagina de Cadastro</title>
+
+    <link rel="stylesheet" href="cssGlobal.css">
+
+</head>
+
+
+
+<body>
+
+    <div id="container">
+
+        
+
+
+
+        <div id="botoesCadastro">
+
+            <div id="clicli" class="tab-btn active" onclick="alternarAba('cliente')">Cadastro Cliente</div>
+
+            <div id="veve" class="tab-btn" onclick="alternarAba('vendedor')">Cadastro Vendedor</div>
+
+        </div>
+
+        
+
+        <form action="CadastrarCliente.php" method="POST" id="formularioCliente" class="form-cadastro active">
+
+        
+
+            <div class="grupo">
+
+                <label>Nome Completo:</label>
+
+                <input type="text" name="nome" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>CPF:</label>
+
+                <input type="text" name="cpf" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>Data de Nascimento</label>
+
+                <input type="date" name="DataNascimento" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>Categorias Interessadas</label>
+
+
+                <select name="categorias">
+
+                    <option value="cabelos">Cabelos</option>
+
+                    <option value="skincare">Skincare</option>
+
+                    <option value="Cor&Ban">Corpo e Banho</option>
+
+                    <option value="maquiagem">Maquiagem</option>
+
+                    <option value="higiene">Higiene</option>
+
+                </select>
+
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>Endereço</label>
+
+                <textarea name="endereco" rows="2" required></textarea>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>Senha</label>
+
+                <input type="password" name="senha" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>Confirmar Senha</label>
+
+                <input type="password" name="confirmarsenha" required>
+
+            </div>
+
+            
+
+            <button type="submit">Cadastrar Cliente</button>
+
+            
+
+        </form>
+
+        
+
+        <form action="CadastrarVendedor.php" method="POST" id="FormularioVendedor" class="form-cadastro">
+
+            
+
+            <div class="grupo">
+
+                <label>Nome Completo:</label>
+
+                <input type="text" name="nomeVendedor" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>E-mail:</label>
+
+                <input type="email" name="email" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>CPF do vendedor: </label>
+
+                <input type="text" name="cpfVen" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>Nome da Loja:</label>
+
+                <input type="text" name="nomeLoja" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>CNPJ da Loja</label>
+
+                <input type="text" name="cnpj" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>Categoria da Loja</label>
+
+
+                <select name="categoriaLoja">
+
+                    <option value="cabelos">Cabelos</option>
+
+                    <option value="skincare">Skincare</option>
+
+                    <option value="Cor&Ban">Corpo e Banho</option>
+
+                    <option value="maquiagem">Maquiagem</option>
+
+                    <option value="higiene">Higiene</option>
+
+                </select>
+
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>Número de Telefone</label>
+
+                <input type="tel" name="telefone" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>Data de Nascimento</label>
+
+                <input type="date" name="dataNascimento" required>
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label>Criar Senha</label>
+
+                <input type="password" name="senha" required>
+
+            </div>
+
+                
+
+            <div class="grupo">
+
+                <label>Confirmar Senha</label>
+
+                <input type="password" name="confirmarSenha" required>
+
+            </div>
+
+            
+
+            <button type="submit">Cadastrar Vendedor</button>
+
+            
+
+        </form>
+
+
+
+        <div class="link">
+
+            <p>Já tem uma conta? <a href="index.html">Faça seu Login</a></p>
+
+        </div>
+
+    </div>
+
+
+
     <script src="validacao.js">
+
+        function alternarAba(tipo) {
+
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.querySelectorAll('.form-cadastro').forEach(form => form.classList.remove('active'));
+
+            
+
+            if(tipo === 'cliente') {
+
+                document.getElementById('clicli').classList.add('active');
+
+                document.getElementById('formularioCliente').classList.add('active');
+
+            } else {
+
+                document.getElementById('veve').classList.add('active');
+
+                document.getElementById('FormularioVendedor').classList.add('active');
+
+            }
+
+        }
+
+    </script>
+
+<script src="validacao.js"></script>
+
+</body>
+
+</html>
+
+O seu código HTML está muito bem estruturado e a lógica para alternar entre as abas de Cliente e Vendedor faz todo o sentido! No entanto, existem alguns erros de sintaxe no final do arquivo (na parte do JavaScript) que vão fazer com que a sua função de alternar abas não funcione.
+
+Aqui estão os pontos que você precisa corrigir:
+
+O que precisa ser corrigido?
+1. JavaScript dentro de tag <script src="...">
+No HTML, se você usa o atributo src="validacao.js", o navegador vai ignorar completamente qualquer código que você escrever dentro da tag. Além disso, logo abaixo você repetiu a tag <script src="validacao.js"></script>.
+
+Como corrigir: Se a função alternarAba deve ficar nessa página, remova o atributo src da primeira tag.
+
+2. Esquecimento de fechar a tag <html>
+No finalzinho do código original, faltou fechar a tag html (você colocou apenas </html>), mas o seu código postado já possui o fechamento correto. Certifique-se apenas de que no seu arquivo local ela termine assim.
+
+Código Corrigido
+Aqui está o seu código ajustado e limpo. A principal mudança foi a separação correta dos scripts no final do <body>:
+
+HTML
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cadastro</title>
+    <link rel="stylesheet" href="cssGlobal.css">
+</head>
+
+<body>
+    <div id="container">
+        
+        <div id="botoesCadastro">
+            <div id="clicli" class="tab-btn active" onclick="alternarAba('cliente')">Cadastro Cliente</div>
+            <div id="veve" class="tab-btn" onclick="alternarAba('vendedor')">Cadastro Vendedor</div>
+        </div>
+        
+        <form action="CadastrarCliente.php" method="POST" id="formularioCliente" class="form-cadastro active">
+            <div class="grupo">
+                <label>Nome Completo:</label>
+                <input type="text" name="nome" required>
+            </div>
+            
+            <div class="grupo">
+                <label>CPF:</label>
+                <input type="text" name="cpf" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Data de Nascimento</label>
+                <input type="date" name="DataNascimento" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Categorias Interessadas</label>
+                <select name="categorias">
+                    <option value="cabelos">Cabelos</option>
+                    <option value="skincare">Skincare</option>
+                    <option value="Cor&Ban">Corpo e Banho</option>
+                    <option value="maquiagem">Maquiagem</option>
+                    <option value="higiene">Higiene</option>
+                </select>
+            </div>
+            
+            <div class="grupo">
+                <label>Endereço</label>
+                <textarea name="endereco" rows="2" required></textarea>
+            </div>
+            
+            <div class="grupo">
+                <label>Senha</label>
+                <input type="password" name="senha" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Confirmar Senha</label>
+                <input type="password" name="confirmarsenha" required>
+            </div>
+            
+            <button type="submit">Cadastrar Cliente</button>
+        </form>
+        
+        <form action="CadastrarVendedor.php" method="POST" id="FormularioVendedor" class="form-cadastro">
+            <div class="grupo">
+                <label>Nome Completo:</label>
+                <input type="text" name="nomeVendedor" required>
+            </div>
+            
+            <div class="grupo">
+                <label>E-mail:</label>
+                <input type="email" name="email" required>
+            </div>
+            
+            <div class="grupo">
+                <label>CPF do vendedor: </label>
+                <input type="text" name="cpfVen" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Nome da Loja:</label>
+                <input type="text" name="nomeLoja" required>
+            </div>
+            
+            <div class="grupo">
+                <label>CNPJ da Loja</label>
+                <input type="text" name="cnpj" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Categoria da Loja</label>
+                <select name="categoriaLoja">
+                    <option value="cabelos">Cabelos</option>
+                    <option value="skincare">Skincare</option>
+                    <option value="Cor&Ban">Corpo e Banho</option>
+                    <option value="maquiagem">Maquiagem</option>
+                    <option value="higiene">Higiene</option>
+                </select>
+            </div>
+            
+            <div class="grupo">
+                <label>Número de Telefone</label>
+                <input type="tel" name="telefone" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Data de Nascimento</label>
+                <input type="date" name="dataNascimento" required>
+            </div>
+            
+            <div class="grupo">
+                <label>Criar Senha</label>
+                <input type="password" name="senha" required>
+            </div>
+                
+            <div class="grupo">
+                <label>Confirmar Senha</label>
+                <input type="password" name="confirmarSenha" required>
+            </div>
+            
+            <button type="submit">Cadastrar Vendedor</button>
+        </form>
+
+        <div class="link">
+            <p>Já tem uma conta? <a href="index.html">Faça seu Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        function alternarAba(tipo) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.form-cadastro').forEach(form => form.classList.remove('active'));
+            
+            if(tipo === 'cliente') {
+                document.getElementById('clicli').classList.add('active');
+                document.getElementById('formularioCliente').classList.add('active');
+            } else {
+                document.getElementById('veve').classList.add('active');
+                document.getElementById('FormularioVendedor').classList.add('active');
+            }
+        }
+    </script>
+
+    <script src="validacao.js"></script>
+</body>
+</html>
+Dica extra de CSS
+Para que a alternância funcione visualmente, lembre-se de que no seu arquivo cssGlobal.css você precisa ter uma regra escondendo os formulários por padrão e mostrando apenas o que tem a classe active. Algo parecido com isto:
+
+CSS
+.form-cadastro {
+    display: none;
+}
+.form-cadastro.active {
+    display: block; /* ou flex, dependendo do seu layout */
+}
+esta certo? <!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastrar Produto - Marketplace</title>
+
+    <link rel="stylesheet" href="cssGlobal.css">
+
+</head>
+
+<body>
+
+
+
+    <header>
+
+        <div id="logo">Nossa Loja</div>
+
+        <nav>
+
+            <a href="PaginaInicial.html">Início</a>
+
+            <a href="CadastroProduto.html" class="active">Meus Produtos</a>
+
+            <a href="index.html">Sair</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <div id="container">
+
+        <h2>Cadastrar Novo Produto</h2>
+
+        
+
+        <form action="SalvarProduto.php" method="POST" id="formProduto">
+
+        
+
+            <div class="grupo">
+
+                <label for="nome_produto">Nome do Produto:</label>
+
+                <input type="text" id="nome_produto" name="nome_produto" required placeholder="Ex: Sabonete de Maracuja">
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+              
+
+                <label for="categoria_produto">Categoria do Produto:</label>
+
+              
+
+                <select id="categoria_produto" name="categoria_produto" required>
+
+                    <option value="">Selecione uma categoria</option>
+
+                    <option value="cabelos">Cabelos</option>
+
+                    <option value="skincare">Skincare</option>
+
+                    <option value="Cor&Ban">Corpo e Banho</option>
+
+                    <option value="maquiagem">Maquiagem</option>
+
+                    <option value="higiene">Higiene</option>
+
+                </select>
+
+              
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label for="preco">Preço (R$):</label>
+
+                <input type="number" id="preco" name="preco" step="any" required placeholder="0.00">
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label for="marca">Marca:</label>
+
+                <input type="text" id="marca" name="marca" required placeholder="Ex: Avon, Bioextratus">
+
+            </div>
+
+            
+
+            <div class="grupo">
+
+                <label for="estoque">Quantidade em Estoque:</label>
+
+                <input type="number" id="estoque" name="estoque" min="0" required placeholder="Ex: 50">
+
+            </div>
+
+            
+
+            <button type="submit">Cadastrar Produto</button>
+
+          
+
+        </form>
+
+    </div>
+
+
+
+    <script src="validacao.js">
+
         document.addEventListener("DOMContentLoaded", function() 
+
             {
+
             fetch('ConfeririSessao')
+
                 .then(response => response.json())
+
                 .then(dados => 
+
                   {
+
                     if (!dados.logado || dados.tipo_usuario !== 'vendedor') 
+
                     {
+
+                        alert("Acesso restrito apenas para vendedores cadastrados.");
+
+                        window.location.href = "index.html";
+
+                    }
+
+                });
+
+        });
+
+
+
+        document.getElementById('formProduto').addEventListener('submit', function(event) 
+
+              {
+
+            const preco = parseFloat(document.getElementById('preco').value);
+
+            const estoque = parseInt(document.getElementById('estoque').value);
+
+
+
+            if (preco <= 0) 
+
+            {
+
+                alert('O preço do produto precisa ser maior que R$ 0,00.');
+
+                event.preventDefault();
+
+                return;
+
+            }
+
+
+
+            if (estoque < 0) 
+
+            {
+
+                alert('A quantidade em estoque não pode ser um número negativo.');
+
+                event.preventDefault();
+
+                return;
+
+            }
+
+        });
+
+    </script>
+
+
+
+    <script src="validacao.js"></script>
+
+</body>
+
+</html>
+
+Sim, a estrutura do seu HTML e a lógica de validação do formulário no JavaScript estão ótimas! Você usou corretamente os atributos for nos <label> apontando para os id dos inputs, o que é excelente para acessibilidade.
+
+Porém, você caiu exatamente no mesmo detalhe do código anterior na parte do JavaScript. Vamos ajustar isso para que seu código funcione sem falhas.
+
+O que precisa ser corrigido?
+1. Código escrito dentro de <script src="...">
+Assim como da outra vez, o navegador ignora completamente o código JavaScript que está dentro de uma tag que possui o atributo src="validacao.js". Além disso, você acabou repetindo a chamada do arquivo externo na linha de baixo (<script src="validacao.js"></script>).
+
+A solução: Deixe a tag do script local sem o atributo src. Se o arquivo validacao.js tiver outras funções que você usa no site, chame-o separadamente.
+
+2. Pequeno erro de digitação no fetch
+Na linha do fetch, você escreveu 'ConfeririSessao'. Provavelmente há um "ri" a mais e o correto seria 'ConferirSessao.php' (ou a extensão/rota exata que você configurou no seu servidor).
+
+3. Ajuste fino no input de preço (step)
+No input de preço você usou step="any". Isso funciona, mas para lidar com centavos (duas casas decimais), o padrão mais recomendado no mercado é usar step="0.01".
+
+Código Corrigido
+Aqui está o código ajustado com as tags corrigidas e organizadas no final do arquivo:
+
+HTML
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produto - Marketplace</title>
+    <link rel="stylesheet" href="cssGlobal.css">
+</head>
+<body>
+
+    <header>
+        <div id="logo">Nossa Loja</div>
+        <nav>
+            <a href="PaginaInicial.html">Início</a>
+            <a href="CadastroProduto.html" class="active">Meus Produtos</a>
+            <a href="index.html">Sair</a>
+        </nav>
+    </header>
+
+    <div id="container">
+        <h2>Cadastrar Novo Produto</h2>
+        
+        <form action="SalvarProduto.php" method="POST" id="formProduto">
+        
+            <div class="grupo">
+                <label for="nome_produto">Nome do Produto:</label>
+                <input type="text" id="nome_produto" name="nome_produto" required placeholder="Ex: Sabonete de Maracuja">
+            </div>
+            
+            <div class="grupo">
+                <label for="categoria_produto">Categoria do Produto:</label>
+                <select id="categoria_produto" name="categoria_produto" required>
+                    <option value="">Selecione uma categoria</option>
+                    <option value="cabelos">Cabelos</option>
+                    <option value="skincare">Skincare</option>
+                    <option value="Cor&Ban">Corpo e Banho</option>
+                    <option value="maquiagem">Maquiagem</option>
+                    <option value="higiene">Higiene</option>
+                </select>
+            </div>
+            
+            <div class="grupo">
+                <label for="preco">Preço (R$):</label>
+                <input type="number" id="preco" name="preco" step="0.01" required placeholder="0.00">
+            </div>
+            
+            <div class="grupo">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" required placeholder="Ex: Avon, Bioextratus">
+            </div>
+            
+            <div class="grupo">
+                <label for="estoque">Quantidade em Estoque:</label>
+                <input type="number" id="estoque" name="estoque" min="0" required placeholder="Ex: 50">
+            </div>
+            
+            <button type="submit">Cadastrar Produto</button>
+          
+        </form>
+    </div>
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Ajuste aqui o nome do arquivo/rota do seu backend (ex: ConferirSessao.php)
+            fetch('ConferirSessao.php')
+                .then(response => response.json())
+                .then(dados => {
+                    if (!dados.logado || dados.tipo_usuario !== 'vendedor') {
                         alert("Acesso restrito apenas para vendedores cadastrados.");
                         window.location.href = "index.html";
                     }
-                });
+                })
+                .catch(erro => console.error("Erro ao verificar sessão:", erro));
         });
 
-        document.getElementById('formProduto').addEventListener('submit', function(event) 
-              {
+        document.getElementById('formProduto').addEventListener('submit', function(event) {
             const preco = parseFloat(document.getElementById('preco').value);
             const estoque = parseInt(document.getElementById('estoque').value);
 
-            if (preco <= 0) 
-            {
+            if (preco <= 0) {
                 alert('O preço do produto precisa ser maior que R$ 0,00.');
                 event.preventDefault();
                 return;
             }
 
-            if (estoque < 0) 
-            {
+            if (estoque < 0) {
                 alert('A quantidade em estoque não pode ser um número negativo.');
                 event.preventDefault();
                 return;
@@ -99,5 +861,6 @@
     </script>
 
     <script src="validacao.js"></script>
+
 </body>
 </html>
