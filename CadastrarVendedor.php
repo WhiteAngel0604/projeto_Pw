@@ -30,7 +30,7 @@ $sql = "INSERT INTO vendedores (nome, email, cpf, nome_loja, cnpj, categoria_loj
 
 if (mysqli_query($conexao, $sql)) {
     echo "<h2>Vendedor cadastrado com sucesso!</h2>";
-    echo "<a href='index (1).html'>Ir para a tela de Login</a>";
+    echo "<a href='index.html'>Ir para a tela de Login</a>";
 } else {
     echo "Erro ao cadastrar: " . mysqli_error($conexao);
 }
