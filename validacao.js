@@ -20,7 +20,7 @@ document.querySelectorAll("form").forEach(formulario => {
         }
 
         if (senha && senha.length < 8) {
-            alert("A senha deve conter no mínimo 6 caracteres.");
+            alert("A senha deve conter no mínimo 8 caracteres.");
             evento.preventDefault();
             return;
         }
