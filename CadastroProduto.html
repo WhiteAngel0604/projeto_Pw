@@ -63,8 +63,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Correção do erro 4: URL corrigida para o arquivo correto com .php
-            fetch('ConferirSessao.php')
+            fetch('ConfeririSessao.php')
                 .then(response => response.json())
                 .then(dados => {
                     if (!dados.logado || dados.tipo_usuario !== 'vendedor') {
@@ -81,13 +80,13 @@
 
             if (preco <= 0) {
                 alert('O preço do produto precisa ser maior que R$ 0,00.');
-                event.preventDefault(); // Impede o envio do formulário
+                event.preventDefault();
                 return;
             }
 
             if (estoque < 0) {
                 alert('A quantidade em estoque não pode ser um número negativo.');
-                event.preventDefault(); // Impede o envio do formulário
+                event.preventDefault();
                 return;
             }
         });
