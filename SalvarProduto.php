@@ -1,7 +1,11 @@
 <?php
 session_start();
-
 header('Content-Type: text/html; charset=utf-8');
+
+$host = "localhost";
+$bancodado = "bancodados";
+$usuarioBanco = "root";
+$senhaBanco = "";
 
 try {
     $pdo = new PDO(
@@ -9,38 +13,19 @@ try {
         $usuarioBanco,
         $senhaBanco
     );
-
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 } catch (PDOException $e) {
     print("Erro na conexão: " . $e->getMessage());
     exit();
 }
 
-if (!isset($_SESSION['usuario_id']) || $_SESSION['tipo_usuario'] !== 'vendedor') 
-{
-    die("Acesso negado.");
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($nome && $categoria && $preco > 0 && $marca && $estoque >= 0) {
+    $sql = "INSERT INTO produtos (nome, categoria, preco, marca, estoque, vendedor_id) 
+            VALUES (:nome, :categoria, :preco, :marca, :vendedor_id)";
     
-
-    $nome = filter_input(INPUT_POST, 'nome_produto', FILTER_SANITIZE_SPECIAL_CHARS);
-    $categoria = filter_input(INPUT_POST, 'categoria_produto', FILTER_SANITIZE_SPECIAL_CHARS);
-    $preco = filter_input(INPUT_POST, 'preco', FILTER_VALIDATE_FLOAT);
-    $marca = filter_input(INPUT_POST, 'marca', FILTER_SANITIZE_SPECIAL_CHARS);
-    $estoque = filter_input(INPUT_POST, 'estoque', FILTER_VALIDATE_INT);
-    $vendedor_id = $_SESSION['usuario_id'];
-
-
-    if ($nome && $categoria && $preco > 0 && $marca && $estoque >= 0) 
-    {
-        
-        $sql = "INSERT INTO produtos (nome, categoria, preco, marca, estoque, vendedor_id) 
-                VALUES (:nome, :categoria, :preco, :marca, :estoque, :vendedor_id)";
-        
-        $stmt = $conexao->prepare($sql);
-        
+    $stmt = $pdo->prepare($sql); 
+    
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':categoria', $categoria);
         $stmt->bindParam(':preco', $preco);
